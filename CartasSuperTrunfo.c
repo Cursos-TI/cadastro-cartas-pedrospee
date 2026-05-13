@@ -1,150 +1,157 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 int main() {
 
-  // Dados da Carta 1
-  char estado1;
-  char codigo1[5];
-  char cidade1[50];
-  unsigned long int populacao1;
-  float area1;
-  float pib1;
-  int pontos1;
-  float densidade1;     // Densidade populacional (hab/km2) - Nível Aventureiro
-  float pibPerCapita1;  // PIB per capita (reais) - Nível Aventureiro
-  float superPoder1;    // Super Poder - Nível Mestre
+    // variáveis da carta 1
+    char estado1[50];
+    char codigo1[10];
+    char cidade1[50];
+    int populacao1;
+    float area1;
+    float pib1;
+    int pontos1;
+    float densidade1;
+    float pibPerCapita1;
 
-  // Dados da Carta 2
-  char estado2;
-  char codigo2[5];
-  char cidade2[50];
-  unsigned long int populacao2;
-  float area2;
-  float pib2;
-  int pontos2;
-  float densidade2;     // Densidade populacional (hab/km2) - Nível Aventureiro
-  float pibPerCapita2;  // PIB per capita (reais) - Nível Aventureiro
-  float superPoder2;    // Super Poder - Nível Mestre
+    // variáveis da carta 2
+    char estado2[50];
+    char codigo2[10];
+    char cidade2[50];
+    int populacao2;
+    float area2;
+    float pib2;
+    int pontos2;
+    float densidade2;
+    float pibPerCapita2;
 
-  // Resultados das comparacoes - Nível Mestre
-  int venceuPopulacao;
-  int venceuArea;
-  int venceuPib;
-  int venceuPontos;
-  int venceuDensidade;
-  int venceuPibPerCapita;
-  int venceuSuperPoder;
+    // variável auxiliar para ler números como texto
+    char entrada[100];
 
-  printf("===== SUPER TRUNFO - CADASTRO DE CARTAS =====\n\n");
+    printf("=== SUPER TRUNFO - CADASTRO DE CARTAS ===\n");
 
-  // Cadastro da Carta 1 - Nível Iniciante
-  printf("--- Carta 1 ---\n");
+    // --- carta 1 ---
+    printf("\nDados da Carta 1:\n");
 
-  printf("Estado: ");
-  scanf(" %c", &estado1);
+    printf("\nEstado: ");
+    fflush(stdout);
+    fgets(estado1, sizeof(estado1), stdin);
+    estado1[strcspn(estado1, "\n")] = '\0';
 
-  printf("Codigo: ");
-  scanf("%4s", codigo1);
+    printf("\nCodigo da carta: ");
+    fflush(stdout);
+    fgets(codigo1, sizeof(codigo1), stdin);
+    codigo1[strcspn(codigo1, "\n")] = '\0';
 
-  printf("Cidade: ");
-  scanf(" %49[^\n]", cidade1);
+    printf("\nNome da cidade: ");
+    fflush(stdout);
+    fgets(cidade1, sizeof(cidade1), stdin);
+    cidade1[strcspn(cidade1, "\n")] = '\0';
 
-  printf("Populacao: ");
-  scanf("%lu", &populacao1);
+    printf("\nPopulacao: ");
+    fflush(stdout);
+    fgets(entrada, sizeof(entrada), stdin);
+    populacao1 = atoi(entrada);
 
-  printf("Area (km2): ");
-  scanf("%f", &area1);
+    printf("\nArea (km2): ");
+    fflush(stdout);
+    fgets(entrada, sizeof(entrada), stdin);
+    area1 = atof(entrada);
 
-  printf("PIB (bilhoes de reais): ");
-  scanf("%f", &pib1);
+    printf("\nPIB (bilhoes de reais): ");
+    fflush(stdout);
+    fgets(entrada, sizeof(entrada), stdin);
+    pib1 = atof(entrada);
 
-  printf("Pontos turisticos: ");
-  scanf("%d", &pontos1);
+    printf("\nNumero de pontos turisticos: ");
+    fflush(stdout);
+    fgets(entrada, sizeof(entrada), stdin);
+    pontos1 = atoi(entrada);
 
-  // Cadastro da Carta 2 - Nível Mestre
-  printf("\n--- Carta 2 ---\n");
+    // --- carta 2 ---
+    printf("\nDados da Carta 2:\n");
 
-  printf("Estado: ");
-  scanf(" %c", &estado2);
+    printf("\nEstado: ");
+    fflush(stdout);
+    fgets(estado2, sizeof(estado2), stdin);
+    estado2[strcspn(estado2, "\n")] = '\0';
 
-  printf("Codigo: ");
-  scanf("%4s", codigo2);
+    printf("\nCodigo da carta: ");
+    fflush(stdout);
+    fgets(codigo2, sizeof(codigo2), stdin);
+    codigo2[strcspn(codigo2, "\n")] = '\0';
 
-  printf("Cidade: ");
-  scanf(" %49[^\n]", cidade2);
+    printf("\nNome da cidade: ");
+    fflush(stdout);
+    fgets(cidade2, sizeof(cidade2), stdin);
+    cidade2[strcspn(cidade2, "\n")] = '\0';
 
-  printf("Populacao: ");
-  scanf("%lu", &populacao2);
+    printf("\nPopulacao: ");
+    fflush(stdout);
+    fgets(entrada, sizeof(entrada), stdin);
+    populacao2 = atoi(entrada);
 
-  printf("Area (km2): ");
-  scanf("%f", &area2);
+    printf("\nArea (km2): ");
+    fflush(stdout);
+    fgets(entrada, sizeof(entrada), stdin);
+    area2 = atof(entrada);
 
-  printf("PIB (bilhoes de reais): ");
-  scanf("%f", &pib2);
+    printf("\nPIB (bilhoes de reais): ");
+    fflush(stdout);
+    fgets(entrada, sizeof(entrada), stdin);
+    pib2 = atof(entrada);
 
-  printf("Pontos turisticos: ");
-  scanf("%d", &pontos2);
+    printf("\nNumero de pontos turisticos: ");
+    fflush(stdout);
+    fgets(entrada, sizeof(entrada), stdin);
+    pontos2 = atoi(entrada);
 
-  // Calculos da Carta 1
-  densidade1 = populacao1 / area1;                    // Densidade populacional (hab/km2) - Nível Aventureiro
-  pibPerCapita1 = (pib1 * 1000000000) / populacao1;   // PIB per capita (reais) - Nível Aventureiro
+    // cálculos
+    densidade1 = populacao1 / area1;
+    densidade2 = populacao2 / area2;
 
-  // Calculos da Carta 2
-  densidade2 = populacao2 / area2;                    // Densidade populacional (hab/km2) - Nível Aventureiro
-  pibPerCapita2 = (pib2 * 1000000000) / populacao2;   // PIB per capita (reais) - Nível Aventureiro
+    // PIB está em bilhões de reais; multiplica por 1e9 para obter reais por habitante
+    pibPerCapita1 = (pib1 * 1e9f) / populacao1;
+    pibPerCapita2 = (pib2 * 1e9f) / populacao2;
 
-  // Calculo do Super Poder - Nível Mestre (combinação ponderada de atributos)
-  superPoder1 = (float)populacao1 + area1 + pib1 + pontos1 + pibPerCapita1 + (1 / densidade1);
-  superPoder2 = (float)populacao2 + area2 + pib2 + pontos2 + pibPerCapita2 + (1 / densidade2);
+    // exibição das cartas
+    printf("\n\n===== CARTAS CADASTRADAS =====\n");
 
-  // Exibicao das cartas
-  printf("\n\n===== CARTAS CADASTRADAS =====\n\n");
+    printf("\nCarta 1:\n");
+    printf("  Estado: %s\n", estado1);
+    printf("  Codigo: %s\n", codigo1);
+    printf("  Cidade: %s\n", cidade1);
+    printf("  Populacao: %d habitantes\n", populacao1);
+    printf("  Area: %.2f km2\n", area1);
+    printf("  PIB: %.2f bilhoes de reais\n", pib1);
+    printf("  Pontos turisticos: %d\n", pontos1);
+    printf("  Densidade populacional: %.2f hab/km2\n", densidade1);
+    printf("  PIB per capita: %.2f reais/hab\n", pibPerCapita1);
 
-  printf("Carta 1:\n");
-  printf("  Estado:            %c\n", estado1);
-  printf("  Codigo:            %s\n", codigo1);
-  printf("  Cidade:            %s\n", cidade1);
-  printf("  Populacao:         %lu habitantes\n", populacao1);
-  printf("  Area:              %.2f km2\n", area1);
-  printf("  PIB:               %.2f bilhoes de reais\n", pib1);
-  printf("  Pontos turisticos: %d\n", pontos1);
-  printf("  Densidade Pop.:    %.2f hab/km2\n", densidade1);
-  printf("  PIB per Capita:    %.2f reais\n", pibPerCapita1);
-  printf("  Super Poder:       %.2f\n", superPoder1);           // Super Poder - Nível Mestre
+    printf("\nCarta 2:\n");
+    printf("  Estado: %s\n", estado2);
+    printf("  Codigo: %s\n", codigo2);
+    printf("  Cidade: %s\n", cidade2);
+    printf("  Populacao: %d habitantes\n", populacao2);
+    printf("  Area: %.2f km2\n", area2);
+    printf("  PIB: %.2f bilhoes de reais\n", pib2);
+    printf("  Pontos turisticos: %d\n", pontos2);
+    printf("  Densidade populacional: %.2f hab/km2\n", densidade2);
+    printf("  PIB per capita: %.2f reais/hab\n", pibPerCapita2);
 
-  printf("\nCarta 2:\n");
-  printf("  Estado:            %c\n", estado2);
-  printf("  Codigo:            %s\n", codigo2);
-  printf("  Cidade:            %s\n", cidade2);
-  printf("  Populacao:         %lu habitantes\n", populacao2);
-  printf("  Area:              %.2f km2\n", area2);
-  printf("  PIB:               %.2f bilhoes de reais\n", pib2);
-  printf("  Pontos turisticos: %d\n", pontos2);
-  printf("  Densidade Pop.:    %.2f hab/km2\n", densidade2);
-  printf("  PIB per Capita:    %.2f reais\n", pibPerCapita2);
-  printf("  Super Poder:       %.2f\n", superPoder2);           // Super Poder - Nível Mestre
+    // comparação por população
+    printf("\n===== COMPARACAO (Populacao) =====\n");
+    printf("  %s: %d habitantes\n", cidade1, populacao1);
+    printf("  %s: %d habitantes\n", cidade2, populacao2);
 
-  // Comparacao das cartas - Nível Mestre
-  venceuPopulacao    = populacao1 > populacao2;
-  venceuArea         = area1 > area2;
-  venceuPib          = pib1 > pib2;
-  venceuPontos       = pontos1 > pontos2;
-  venceuDensidade    = densidade1 < densidade2;
-  venceuPibPerCapita = pibPerCapita1 > pibPerCapita2;
-  venceuSuperPoder   = superPoder1 > superPoder2;
+    if (populacao1 > populacao2) {
+        printf("\nResultado: Carta 1 (%s) venceu!\n", cidade1);
+    } else if (populacao2 > populacao1) {
+        printf("\nResultado: Carta 2 (%s) venceu!\n", cidade2);
+    } else {
+        printf("\nResultado: Empate!\n");
+    }
 
-  // Resultado das comparacoes - Nível Mestre
-  printf("\n\n===== COMPARACAO DE CARTAS =====\n\n");
-  printf("Comparacao de Cartas:\n\n");
-  printf("Populacao:              %s (%d)\n", venceuPopulacao    ? "Carta 1 venceu" : "Carta 2 venceu", venceuPopulacao);
-  printf("Area:                   %s (%d)\n", venceuArea         ? "Carta 1 venceu" : "Carta 2 venceu", venceuArea);
-  printf("PIB:                    %s (%d)\n", venceuPib          ? "Carta 1 venceu" : "Carta 2 venceu", venceuPib);
-  printf("Pontos Turisticos:      %s (%d)\n", venceuPontos       ? "Carta 1 venceu" : "Carta 2 venceu", venceuPontos);
-  printf("Densidade Populacional: %s (%d)\n", venceuDensidade    ? "Carta 1 venceu" : "Carta 2 venceu", venceuDensidade);
-  printf("PIB per Capita:         %s (%d)\n", venceuPibPerCapita ? "Carta 1 venceu" : "Carta 2 venceu", venceuPibPerCapita);
-  printf("Super Poder:            %s (%d)\n", venceuSuperPoder   ? "Carta 1 venceu" : "Carta 2 venceu", venceuSuperPoder);
-
-  printf("\nFim do cadastro.\n");
-
-  return 0;
+    return 0;
 }
